@@ -42,3 +42,9 @@ Actions:
 
 Keys:
 	Map of keys to use for signature verification
+
+Other EFI applications and inspirations:
+	efitools: https://github.com/marineam/efitools
+	rEFInd: https://sourceforge.net/projects/refind/
+	shim: https://github.com/rhinstaller/shim
+	systemd boot: https://github.com/systemd/systemd/tree/master/src/boot/efi
