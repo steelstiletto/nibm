@@ -7,12 +7,13 @@ Requirements:
 	no extra effort for 32bit support
 	usable from default EFI location
 	usable with SecureBoot
-	suckless file list (main.c, main.h, config.h, Makefile)
+	suckless file list (nibm.c, nibm.h, config.h, Makefile)
 	suckless configuration (recompile)
 
 Questions:
 	Can a shell script be executed, and execution of chains resume?
-	What to do with failed actions? Stop the chain?
+	Is it worth reading from a signed configuration file instead
+		of compiling in the configuration?
 
 RulesList:
 	Array of Chains
@@ -31,6 +32,7 @@ Chain:
 
 Triggers:
 	Mountable Device detection
+	File system detection
 	File detection
 	Other hardware device detection
 
