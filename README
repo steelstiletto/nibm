@@ -1,0 +1,44 @@
+# nibm
+A non-interactive boot manager
+
+Requirements:
+	no gui
+	no user i/o
+	no extra effort for 32bit support
+	usable from default EFI location
+	usable with SecureBoot
+	suckless file list (main.c, main.h, config.h, Makefile)
+	suckless configuration (recompile)
+
+Questions:
+	Can a shell script be executed, and execution of chains resume?
+	What to do with failed actions? Stop the chain?
+
+RulesList:
+	Array of Chains
+	Executed in order
+	Chain execution stops on loading an external app
+
+Chain:
+	Array of triggers and actions
+	Executed in order
+	Triggers are not necessary
+		A failed trigger ceases operation of the Chain
+		A Chain with no triggers will attempt to execute all actions
+	Actions are not necessary
+		But a Chain with no actions has no effect
+		A failed action ceases operation of the Chain
+
+Triggers:
+	Mountable Device detection
+	File detection
+	Other hardware device detection
+
+Actions:
+	Load efi binary
+	Load linux kernel
+	Run efi shell script (is this a subset of load binary?)
+	Verify signature
+
+Keys:
+	Map of keys to use for signature verification
