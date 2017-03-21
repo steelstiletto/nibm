@@ -10,40 +10,42 @@ Requirements:
 	suckless file list (nibm.c, nibm.h, config.h, Makefile)
 	suckless configuration (recompile)
 
+Project files layout:
+	nibm.c/h: Main loop and functions
+	libnibm.c/h: Main library for shared functions
+	action_*.c/h: Actions that can be included and used
+	config.def.h: Template for the config file
+
 Questions:
 	Can a shell script be executed, and execution of chains resume?
 	Is it worth reading from a signed configuration file instead
 		of compiling in the configuration?
+	How can actions be designed to require minimal (or no) changes
+		to the Makefile for each new action?
 
-RulesList:
+Master Chain:
 	Array of Chains
 	Executed in order
 	Chain execution stops on loading an external app
 
 Chain:
-	Array of triggers and actions
+	Array of actions
 	Executed in order
-	Triggers are not necessary
-		A failed trigger ceases operation of the Chain
-		A Chain with no triggers will attempt to execute all actions
-	Actions are not necessary
-		But a Chain with no actions has no effect
-		A failed action ceases operation of the Chain
+	A failed action ceases operation of the Chain
 
-Triggers:
+Actions:
 	Mountable Device detection
 	File system detection
 	File detection
 	Other hardware device detection
-
-Actions:
 	Load efi binary
 	Load linux kernel
 	Run efi shell script (is this a subset of load binary?)
+	Verify hash
 	Verify signature
 
 Keys:
-	Map of keys to use for signature verification
+	Map of keys to use for signature verification or hash checking
 
 Other EFI applications and inspirations:
 	efitools: https://github.com/marineam/efitools
