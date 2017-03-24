@@ -1,3 +1,3 @@
 /* Ostensibly this should try to start fs0:/refind.efi.
  * Not yet implemented... */
-static string do_demo(string args);
+EFI_STATUS do_demo(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable, char *args);

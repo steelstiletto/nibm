@@ -7,11 +7,12 @@ Requirements:
 	no extra effort for 32bit support
 	usable from default EFI location
 	usable with SecureBoot
-	suckless file list (nibm.c, nibm.h, config.h, Makefile)
-	suckless configuration (recompile)
+	simple file list
+	recompile to reconfigure
+	human-(edit|hack|read)able
 
 Project files layout:
-	nibm.c/h: Main loop and functions
+	nibm.c: Main loop and functions
 	libnibm.c/h: Main library for shared functions
 	action_*.c/h: Actions that can be included and used
 	config.def.h: Template for the config file
@@ -22,6 +23,8 @@ Questions:
 		of compiling in the configuration?
 	How can actions be designed to require minimal (or no) changes
 		to the Makefile for each new action?
+	Consider a different interface for calling actions, to allow passing
+		more than a string. How are keys identified and passed?
 
 Master Chain:
 	Array of Chains
