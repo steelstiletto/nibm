@@ -11,7 +11,8 @@ EFI_CRT_OBJS	= $(LIB)/crt0-efi-$(ARCH).o
 EFI_LDS		= $(LIB)/elf_$(ARCH)_efi.lds
 
 CFLAGS		= $(EFIINCS) -fno-stack-protector -fpic -fshort-wchar \
-		  -mno-red-zone -Wall -DEFI_FUNCTION_WRAPPER
+		  -mno-red-zone -Wall -DEFI_FUNCTION_WRAPPER \
+		  -pedantic -std=c99
 
 LDFLAGS		= -nostdlib -znocombreloc -T $(EFI_LDS) -shared \
 		  -Bsymbolic -L $(LIB) $(EFI_CRT_OBJS)
@@ -35,7 +36,7 @@ nibm.so: $(OBJS)
 .PHONY: clean clean-build
 
 clean:
-	@rm -f nibm.o nibm.so nibm.efi config.h
+	@rm -f *.o nibm.so nibm.efi config.h
 
 clean-build:
-	@rm -f nibm.o nibm.so config.h
+	@rm -f *.o nibm.so config.h
