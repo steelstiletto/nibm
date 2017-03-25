@@ -11,16 +11,5 @@ struct Chain {
 	int size;
 };
 
-/* define each action in specific here */
-static const struct Action a_demo = {do_demo, ""};
-
-/* define each chain here */
-static const struct Chain _chain1 = {
-	,
-	1
-};
-
 /* create the master chain */
-static const struct Chain[1] masterChain = {
-	_chain1;
-};
+static const struct Chain masterChain[1] = { { &(struct Action){do_demo, ""}, 1 } };

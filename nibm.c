@@ -16,7 +16,7 @@ efi_main (EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE *SystemTable)
 	for (int i=0; i < masterChainSize; i++) {
 		struct Chain curChain = masterChain[i];
 		for (int j=0; j < curChain.size; j++) {
-			if(!curChain[j].func(ImageHandle, SystemTable, curChain[j].args))
+			if(!curChain.actions[j].func(ImageHandle, SystemTable, curChain.actions[j].args))
 				break;
 		}
 	}

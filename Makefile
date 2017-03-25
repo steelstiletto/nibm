@@ -1,7 +1,7 @@
 ARCH		= x86_64
 CC		= gcc
 
-OBJS		= nibm.o
+OBJS		= nibm.o action_demo.o
 TARGET		= nibm.efi
 
 EFIINC		= /usr/include/efi
@@ -18,7 +18,7 @@ LDFLAGS		= -nostdlib -znocombreloc -T $(EFI_LDS) -shared \
 
 all: $(TARGET)
 
-$(OBJS): config.h
+nibm.o: config.h
 
 config.h: config.def.h
 	@echo creating $@ from config.def.h
